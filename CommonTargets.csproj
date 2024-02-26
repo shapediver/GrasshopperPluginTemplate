@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+    Directory for calling yak, this is different for Rhino 7 and 8, 
+    because Rhino 8 supports multi-targeted packages.
+  -->
+  <PropertyGroup Condition="$(Configuration.EndsWith('R7'))">
+    <YakBuildPath>$(OutputPath)/net48</YakBuildPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.EndsWith('R8'))">
+    <YakBuildPath>$(OutputPath)</YakBuildPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <YakYamlFile>$(YakBuildPath)/manifest.yml</YakYamlFile>
+  </PropertyGroup>
+  <!--
+    Target for wiping the build directory
+  -->
+  <Target Name="PrepareBuildYakPackage">
+    <RemoveDir Directories="$(YakBuildPath)" />
+  </Target>
+  <!--
+    Target for building the yak package
+  -->
+  <Target Name="BuildYakPackage">
+    <!-- create the manifest yaml file -->
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)/yak/manifest.yml" DestinationFiles="$(YakYamlFile)" />
+    <ReplaceFileText InputFilename="$(YakYamlFile)" OutputFilename="$(YakYamlFile)" MatchExpression="\$name\$" ReplacementText="$(YakName)" />
+    <ReplaceFileText InputFilename="$(YakYamlFile)" OutputFilename="$(YakYamlFile)" MatchExpression="\$version\$" ReplacementText="$(Version)" />
+    <ReplaceFileText InputFilename="$(YakYamlFile)" OutputFilename="$(YakYamlFile)" MatchExpression="\$authors\$" ReplacementText="$(YakAuthors)" />
+    <ReplaceFileText InputFilename="$(YakYamlFile)" OutputFilename="$(YakYamlFile)" MatchExpression="\$description\$" ReplacementText="$(YakDescription)" />
+    <ReplaceFileText InputFilename="$(YakYamlFile)" OutputFilename="$(YakYamlFile)" MatchExpression="\$url\$" ReplacementText="$(YakUrl)" />
+    <ReplaceFileText InputFilename="$(YakYamlFile)" OutputFilename="$(YakYamlFile)" MatchExpression="\$icon_url\$" ReplacementText="$(YakIconUrl)" />
+    <ReplaceFileText InputFilename="$(YakYamlFile)" OutputFilename="$(YakYamlFile)" MatchExpression="\$keywords\$" ReplacementText="$(YakKeywords)" />
+    <!-- remove pdb files etc -->
+    <!-- see example here: https://learn.microsoft.com/en-us/visualstudio/msbuild/delete-task?view=vs-2022 -->
+    <ItemGroup>
+      <FilesToDelete Include="$(YakBuildPath)*\*.yak;$(YakBuildPath)*\*.pdb;$(YakBuildPath)*\*.xml" />
+    </ItemGroup>
+    <Message Text="Deleting Files @(FilesToDelete)" />
+    <Delete Files="@(FilesToDelete)">
+      <Output TaskParameter="DeletedFiles" ItemName="FilesDeleted" />
+    </Delete>
+    <Message Text="Files deleted: @(FilesDeleted)" />
+    <!-- call yak -->
+    <Exec Command="&quot;$(YakExecutable)&quot; build" WorkingDirectory="$(YakBuildPath)" />
+    <!-- move resulting yak package -->
+    <ItemGroup>
+      <BuiltYakPackages Include="$(YakBuildPath)\*.yak" />
+    </ItemGroup>
+    <Copy SourceFiles="@(BuiltYakPackages)" DestinationFolder="$(MSBuildThisFileDirectory)/bin/packages" />
+</Target>
+</Project>

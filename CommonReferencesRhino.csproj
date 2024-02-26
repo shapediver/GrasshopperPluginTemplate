@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Packages used by all projects depending on Rhino
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Choose>
+    <When Condition="$(Configuration.Contains('R7'))">
+      <ItemGroup>
+        <PackageReference Include="RhinoCommon" IncludeAssets="compile;build" />
+      </ItemGroup>
+      <PropertyGroup Condition="Exists('$(ProgramW6432)\Rhino 7\System\Rhino.exe') AND $([MSBuild]::IsOSPlatform(Windows))">
+        <StartProgram>$(ProgramW6432)\Rhino 7\System\Rhino.exe</StartProgram>
+        <StartArguments>
+        </StartArguments>
+        <StartAction>Program</StartAction>
+        <Prefer32Bit>false</Prefer32Bit>
+      </PropertyGroup>
+      <PropertyGroup>
+        <DefineConstants>$(DefineConstants),RHINOCOMMON_EQUAL_7</DefineConstants>
+        <DefineConstants>$(DefineConstants),RHINOCOMMON_GREATER_EQUAL_7</DefineConstants>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(Configuration.Contains('R8'))">
+      <ItemGroup>
+        <PackageReference Include="RhinoCommon" IncludeAssets="compile;build" />
+      </ItemGroup>
+      <PropertyGroup Condition="Exists('$(ProgramW6432)\Rhino 8\System\Rhino.exe') AND $([MSBuild]::IsOSPlatform(Windows))">
+        <StartProgram>$(ProgramW6432)\Rhino 8\System\Rhino.exe</StartProgram>
+        <StartArguments>
+        </StartArguments>
+        <StartAction>Program</StartAction>
+        <Prefer32Bit>false</Prefer32Bit>
+      </PropertyGroup>
+      <PropertyGroup>
+        <DefineConstants>$(DefineConstants),RHINOCOMMON_EQUAL_8</DefineConstants>
+        <DefineConstants>$(DefineConstants),RHINOCOMMON_GREATER_EQUAL_7</DefineConstants>
+        <DefineConstants>$(DefineConstants),RHINOCOMMON_GREATER_EQUAL_8</DefineConstants>
+      </PropertyGroup>
+    </When>
+  </Choose>
+</Project>

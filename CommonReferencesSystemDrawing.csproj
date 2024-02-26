@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Choose>
+        <!--
+            When building for Rhino 8 (.NET 7) we need to specifically include System.Drawing.Common
+            see https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/6.0/system-drawing-common-windows-only
+        -->
+        <When Condition="$(TargetFramework) != 'net48'">
+            <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier($(TargetFramework))) == 'windows'">
+                <PackageReference Include="System.Drawing.Common" />
+            </ItemGroup>
+            <!--
+                On Mac we use McNeel's implementation of System.Drawing.Common
+                see https://discourse.mcneel.com/t/windows-forms-on-gh-and-rhino-8/171307/13
+                and https://discourse.mcneel.com/t/system-drawing-common-not-compatible-with-macos-anymore/166565
+            -->
+            <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier($(TargetFramework))) == 'macos'">
+                <Reference Include="System.Drawing.Common">
+                    <HintPath>$(MSBuildThisFileDirectory)\References\MacOS\System.Drawing.Common.dll</HintPath>
+                    <Private>False</Private>
+                </Reference>
+            </ItemGroup>
+            <!--
+                There are slight differences for McNeel's implementation of System.Drawing.Common,
+                this define allows use to use preprocessor directives to work around those differences. 
+            -->
+            <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier($(TargetFramework))) == 'macos'">
+                <DefineConstants>$(DefineConstants),USING_MCNEEL_SYSTEM_DRAWING</DefineConstants>
+            </PropertyGroup>
+        </When>
+    </Choose>
+</Project>

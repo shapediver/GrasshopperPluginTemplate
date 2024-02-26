@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+    Variables used by all projects.
+    Do not import this file directly, use CommonSettings.csproj instead.
+  -->
+
+  <!--
+    The version to be used for all assemblies. 
+        
+   {Major}.{Minor}.{Patch}{Suffix}
+  -->
+  <PropertyGroup>
+    <CommonVersionMajor>0</CommonVersionMajor>
+    <CommonVersionMinor>1</CommonVersionMinor>
+    <CommonVersionPatch>0</CommonVersionPatch>
+    <!-- 
+      Make sure to include a leading dash in the suffix, e.g. "-beta", "-beta.1", "-beta.2", etc
+    -->
+    <CommonVersionSuffix>-alpha</CommonVersionSuffix>
+  </PropertyGroup>
+  <!--
+    Common name and namespace for all projects
+  -->
+  <PropertyGroup>
+    <CommonNamespace>PluginTemplate</CommonNamespace>
+    <CommonName>PluginTemplate</CommonName>
+  </PropertyGroup>
+  <!--
+    Author, Company, Copyright, Product
+  -->
+  <PropertyGroup>
+    <CommonAuthors>Alex Schiftner</CommonAuthors>
+    <CommonAuthorContact>alex@shapediver.com</CommonAuthorContact>
+    <CommonCompany>ShapeDiver</CommonCompany>
+    <CommonCopyright>ShapeDiver GmbH 2024</CommonCopyright>
+    <CommonProduct>A template plug-in for Grasshopper and Rhino</CommonProduct>
+    <YakName>$(CommonName)</YakName>
+    <YakAuthors>$(CommonAuthors), $(CommonCompany)</YakAuthors>
+    <YakDescription>$(CommonProduct)</YakDescription>
+    <YakUrl>https://github.com/shapediver/GrasshopperPluginTemplate</YakUrl>
+    <YakIconUrl>https://github.com/shapediver/GrasshopperPluginTemplate/blob/a7fc6515609bc84d99f9b8dc5f2f062899a7eb11/Artwork/PluginTemplateIcon_32.png</YakIconUrl>
+    <YakKeywords>- Rhino
+- Grasshopper
+- Template</YakKeywords>
+  </PropertyGroup>
+</Project>

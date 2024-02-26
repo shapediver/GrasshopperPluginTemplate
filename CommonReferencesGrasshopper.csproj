@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Packages used by all projects depending on Grasshopper
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Choose>
+    <When Condition="$(Configuration.Contains('R7'))">
+      <ItemGroup>
+        <PackageReference Include="Grasshopper" IncludeAssets="compile;build" />
+      </ItemGroup>
+    </When>
+    <When Condition="$(Configuration.Contains('R8'))">
+      <ItemGroup>
+        <PackageReference Include="Grasshopper" IncludeAssets="compile;build" />
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>

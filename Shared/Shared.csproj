@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Sdk Name="Microsoft.NET.Sdk" />
+  
+  <Import Project="../CommonSettings.csproj" />
+  
+  <PropertyGroup>
+    <RootNamespace>$(CommonNamespace).Shared</RootNamespace>
+    <AssemblyName>$(CommonName).Shared</AssemblyName>
+    <Description>Shared functionality not depending on Rhino</Description>
+    <!--
+          Default inclusion of files
+          https://docs.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#enabledefaultitems
+    -->
+    <EnableDefaultItems>true</EnableDefaultItems>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>true</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultNoneItems>true</EnableDefaultNoneItems>
+  </PropertyGroup>
+  
+  <!--
+    Embedded resources
+    see https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-items?view=vs-2022#embeddedresource
+    and https://khalidabuhakmeh.com/how-to-use-embedded-resources-in-dotnet
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\**\*" />
+  </ItemGroup>
+  
+  <Import Project="../CommonSettingsFinal.csproj" />
+
+</Project>

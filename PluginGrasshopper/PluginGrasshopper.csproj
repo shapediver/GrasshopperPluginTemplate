@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Sdk Name="Microsoft.NET.Sdk" />
+  
+  <Import Project="../CommonSettings.csproj" />
+  <Import Project="../CommonReferencesRhino.csproj" />
+  <Import Project="../CommonReferencesGrasshopper.csproj" />
+  <Import Project="../CommonReferencesSystemDrawing.csproj" />
+  
+  <PropertyGroup>
+    <RootNamespace>$(CommonNamespace).PluginGrasshopper</RootNamespace>
+    <AssemblyName>$(CommonName).PluginGrasshopper</AssemblyName>
+    <AssemblyTitle>$(CommonName)</AssemblyTitle>
+    <Description>$(Product)</Description>
+    <TargetExt>.gha</TargetExt>
+    <!--
+          Default inclusion of files
+          https://docs.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#enabledefaultitems
+    -->
+    <EnableDefaultItems>true</EnableDefaultItems>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>true</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultNoneItems>true</EnableDefaultNoneItems>
+    <!-- 
+          EnableDynamicLoadingis explained here:
+          https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#enabledynamicloading
+    -->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+  
+  <!--
+    Embedded resources
+    see https://learn.microsoft.com/en-us/visualstudio/msbuild/common-msbuild-project-items?view=vs-2022#embeddedresource
+    and https://khalidabuhakmeh.com/how-to-use-embedded-resources-in-dotnet
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\**\*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- 
+      Include a GuidAttribute which will be used as our unique Grasshopper plugin id. 
+      see https://learn.microsoft.com/en-us/dotnet/standard/assembly/set-attributes-project-file#set-arbitrary-attributes
+    -->
+    <AssemblyAttribute Include="System.Runtime.InteropServices.GuidAttribute">
+      <_Parameter1>1BCC8EAC-55D3-43E2-B573-BE6A3DAB3102</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  
+  <Import Project="../CommonSettingsFinal.csproj" />
+  
+</Project>

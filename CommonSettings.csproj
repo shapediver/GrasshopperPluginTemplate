@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+      Settings common to all projects. 
+      Import this at the top of your .csproj files.
+  -->
+
+  <!--
+        Import variables common to all projects (version, naming, authorship, etc).
+  -->
+  <Import Project="CommonVariables.csproj"/>
+
+  <!--
+        Basic settings.
+  -->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">DebugR7</Configuration>
+    <Configurations>DebugR7;DebugR8;ReleaseR7;ReleaseR8</Configurations>
+    <OutputPath>$(MSBuildThisFileDirectory)\bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  
+  <!--
+        We choose the target frameworks depending on the build configuration.
+        Are we building for Rhino 7 or Rhino 8 ?
+  -->
+  <PropertyGroup Condition="$(Configuration.EndsWith('R7'))">
+    <TargetFrameworks>net48</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.EndsWith('R8'))">
+    <TargetFrameworks>net48;net7.0-windows;net7.0-macos</TargetFrameworks>
+  </PropertyGroup>
+  
+  <!--
+        Settings related to TargetFramework.
+  -->
+  <PropertyGroup>
+    <!--
+        The maximum language version supported for .NET Framework is 7.3
+        see https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version
+    -->
+    <LangVersion>7.3</LangVersion>
+    <!--
+        EnableWindowsTargeting is explained here: 
+        https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/netsdk1100
+    -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <!--
+        When implementing platform-specific code (windows or macos only), either put your source files into subdirectories of 
+        "Windows" and "MacOS", or use preprocessor statements to check for defines WINDOWS or MACOS
+        see https://learn.microsoft.com/en-gb/dotnet/standard/frameworks#preprocessor-symbols
+    -->
+    <IsWindows Condition="$([MSBuild]::GetTargetPlatformIdentifier($(TargetFramework))) == 'windows' or $(TargetFramework) == 'net48'">True</IsWindows>
+    <IsMac Condition="$([MSBuild]::GetTargetPlatformIdentifier($(TargetFramework))) == 'macos' ">True</IsMac>
+    <DefaultItemExcludes Condition="$(IsWindows) != 'True'">$(DefaultItemExcludes);Windows\**\*</DefaultItemExcludes>
+    <DefaultItemExcludes Condition="$(IsMac) != 'True'">$(DefaultItemExcludes);MacOS\**\*</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <!--
+        On the Windows platform one could use WPF and/or Windows Forms
+        see https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props-desktop
+  -->
+  <!--
+  <PropertyGroup Condition="$(IsWindows) == 'True'">
+    <UseWPF>True</UseWPF>
+    <UseWindowsForms>True</UseWindowsForms>
+  </PropertyGroup>
+  -->
+
+  <!--
+        Set some custom variables
+  -->
+  <PropertyGroup>
+    <BuildTimestamp>$([System.DateTime]::Now.ToString("o"))</BuildTimestamp>
+  </PropertyGroup>
+
+  <!--
+        Settings depending on build configuration
+  -->
+  <PropertyGroup Condition="$(Configuration.StartsWith('Debug'))">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>$(DefineConstants),DEBUG,TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration.StartsWith('Release'))">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>$(DefineConstants)</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <!-- 
+        Decide whether to copy NuGet package dependencies to the output directory 
+        see https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#copylocallockfileassemblies
+        
+        We superseded this by the project-specific property EnableDynamicLoading
+  -->
+  <PropertyGroup>
+    <!--<CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>-->
+  </PropertyGroup>
+
+  <!--
+      Auto-generated AssemblyInfo
+      https://docs.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#assembly-attribute-properties 
+  -->
+  <PropertyGroup>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Version>$(CommonVersionMajor).$(CommonVersionMinor).$(CommonVersionPatch)$(CommonVersionSuffix)</Version>
+    <Authors>$(CommonAuthors)</Authors>
+    <Company>$(CommonCompany)</Company>
+    <CopyRight>$(CommonCopyright)</CopyRight>
+    <Product>$(CommonProduct)</Product>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <!-- 
+      Include some System.Reflection.AssemblyMetadataAttribute for storing the contact information 
+      and other metadata as assembly attributes. 
+      see https://learn.microsoft.com/en-us/dotnet/standard/assembly/set-attributes-project-file#set-arbitrary-attributes
+    -->
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>AuthorContact</_Parameter1>
+      <_Parameter2>$(CommonAuthorContact)</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>Authors</_Parameter1>
+      <_Parameter2>$(CommonAuthors)</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>BuildTimestamp</_Parameter1>
+      <_Parameter2>$(BuildTimestamp)</_Parameter2>
+    </AssemblyAttribute>
+
+  </ItemGroup>
+  
+  <!--
+        Import task definitions.
+  -->
+  <Import Project="CommonTasks.csproj"/>
+  
+  <!--
+        Import target definitions.
+  -->
+  <Import Project="CommonTargets.csproj"/>
+  
+</Project>

@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{DE0D681B-7381-4C5A-8BC9-9468A49530DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedRhino", "SharedRhino\SharedRhino.csproj", "{979B3977-171C-4556-B258-67DCDB22EA50}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestShared", "TestShared\TestShared.csproj", "{8038AC47-3427-417F-B332-5C690A527EAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestSharedRhino", "TestSharedRhino\TestSharedRhino.csproj", "{30CF2229-F954-42B2-A309-339276B7FAE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FAB810F0-1304-456B-AED3-6130C47D9E9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9A99AD89-394A-42BD-AE87-B50612D1F2DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{81FD4852-BD3E-4D54-85F4-1D38CBDB9EF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginGrasshopper", "PluginGrasshopper\PluginGrasshopper.csproj", "{72892D62-9108-4903-851F-2FD850096605}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginRhino", "PluginRhino\PluginRhino.csproj", "{1868DD53-EF87-4564-A98B-C377DC38847B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE2713C1-7811-4EE6-A885-7E3A904B43A7}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		CommonReferencesGrasshopper.csproj = CommonReferencesGrasshopper.csproj
+		CommonReferencesRhino.csproj = CommonReferencesRhino.csproj
+		CommonReferencesTests.csproj = CommonReferencesTests.csproj
+		CommonSettings.csproj = CommonSettings.csproj
+		CommonSettingsFinal.csproj = CommonSettingsFinal.csproj
+		CommonVariables.csproj = CommonVariables.csproj
+		Directory.Packages.props = Directory.Packages.props
+		Packages.props = Packages.props
+		PackagesRhino7.props = PackagesRhino7.props
+		PackagesRhino8.props = PackagesRhino8.props
+		README.md = README.md
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		DebugR7|Any CPU = DebugR7|Any CPU
+		DebugR8|Any CPU = DebugR8|Any CPU
+		ReleaseR7|Any CPU = ReleaseR7|Any CPU
+		ReleaseR8|Any CPU = ReleaseR8|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.DebugR7|Any CPU.ActiveCfg = DebugR7|Any CPU
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.DebugR7|Any CPU.Build.0 = DebugR7|Any CPU
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.DebugR8|Any CPU.ActiveCfg = DebugR8|Any CPU
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.DebugR8|Any CPU.Build.0 = DebugR8|Any CPU
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.ReleaseR7|Any CPU.ActiveCfg = ReleaseR7|Any CPU
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.ReleaseR7|Any CPU.Build.0 = ReleaseR7|Any CPU
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.ReleaseR8|Any CPU.ActiveCfg = ReleaseR8|Any CPU
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE}.ReleaseR8|Any CPU.Build.0 = ReleaseR8|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.DebugR7|Any CPU.ActiveCfg = DebugR7|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.DebugR7|Any CPU.Build.0 = DebugR7|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.DebugR8|Any CPU.ActiveCfg = DebugR8|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.DebugR8|Any CPU.Build.0 = DebugR8|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.ReleaseR7|Any CPU.ActiveCfg = ReleaseR7|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.ReleaseR7|Any CPU.Build.0 = ReleaseR7|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.ReleaseR8|Any CPU.ActiveCfg = ReleaseR8|Any CPU
+		{979B3977-171C-4556-B258-67DCDB22EA50}.ReleaseR8|Any CPU.Build.0 = ReleaseR8|Any CPU
+		{8038AC47-3427-417F-B332-5C690A527EAC}.DebugR7|Any CPU.ActiveCfg = DebugR7|Any CPU
+		{8038AC47-3427-417F-B332-5C690A527EAC}.DebugR7|Any CPU.Build.0 = DebugR7|Any CPU
+		{8038AC47-3427-417F-B332-5C690A527EAC}.DebugR8|Any CPU.ActiveCfg = DebugR8|Any CPU
+		{8038AC47-3427-417F-B332-5C690A527EAC}.DebugR8|Any CPU.Build.0 = DebugR8|Any CPU
+		{8038AC47-3427-417F-B332-5C690A527EAC}.ReleaseR7|Any CPU.ActiveCfg = ReleaseR7|Any CPU
+		{8038AC47-3427-417F-B332-5C690A527EAC}.ReleaseR8|Any CPU.ActiveCfg = ReleaseR8|Any CPU
+		{30CF2229-F954-42B2-A309-339276B7FAE5}.DebugR7|Any CPU.ActiveCfg = DebugR7|Any CPU
+		{30CF2229-F954-42B2-A309-339276B7FAE5}.DebugR7|Any CPU.Build.0 = DebugR7|Any CPU
+		{30CF2229-F954-42B2-A309-339276B7FAE5}.DebugR8|Any CPU.ActiveCfg = DebugR8|Any CPU
+		{30CF2229-F954-42B2-A309-339276B7FAE5}.DebugR8|Any CPU.Build.0 = DebugR8|Any CPU
+		{30CF2229-F954-42B2-A309-339276B7FAE5}.ReleaseR7|Any CPU.ActiveCfg = ReleaseR7|Any CPU
+		{30CF2229-F954-42B2-A309-339276B7FAE5}.ReleaseR8|Any CPU.ActiveCfg = ReleaseR8|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.DebugR7|Any CPU.ActiveCfg = DebugR7|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.DebugR7|Any CPU.Build.0 = DebugR7|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.DebugR8|Any CPU.ActiveCfg = DebugR8|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.DebugR8|Any CPU.Build.0 = DebugR8|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.ReleaseR7|Any CPU.ActiveCfg = ReleaseR7|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.ReleaseR7|Any CPU.Build.0 = ReleaseR7|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.ReleaseR8|Any CPU.ActiveCfg = ReleaseR8|Any CPU
+		{72892D62-9108-4903-851F-2FD850096605}.ReleaseR8|Any CPU.Build.0 = ReleaseR8|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.DebugR7|Any CPU.ActiveCfg = DebugR7|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.DebugR7|Any CPU.Build.0 = DebugR7|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.DebugR8|Any CPU.ActiveCfg = DebugR8|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.DebugR8|Any CPU.Build.0 = DebugR8|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.ReleaseR7|Any CPU.ActiveCfg = ReleaseR7|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.ReleaseR7|Any CPU.Build.0 = ReleaseR7|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.ReleaseR8|Any CPU.ActiveCfg = ReleaseR8|Any CPU
+		{1868DD53-EF87-4564-A98B-C377DC38847B}.ReleaseR8|Any CPU.Build.0 = ReleaseR8|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE0D681B-7381-4C5A-8BC9-9468A49530DE} = {FAB810F0-1304-456B-AED3-6130C47D9E9E}
+		{979B3977-171C-4556-B258-67DCDB22EA50} = {FAB810F0-1304-456B-AED3-6130C47D9E9E}
+		{8038AC47-3427-417F-B332-5C690A527EAC} = {9A99AD89-394A-42BD-AE87-B50612D1F2DC}
+		{30CF2229-F954-42B2-A309-339276B7FAE5} = {9A99AD89-394A-42BD-AE87-B50612D1F2DC}
+		{72892D62-9108-4903-851F-2FD850096605} = {81FD4852-BD3E-4D54-85F4-1D38CBDB9EF5}
+		{1868DD53-EF87-4564-A98B-C377DC38847B} = {81FD4852-BD3E-4D54-85F4-1D38CBDB9EF5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19C0329D-CEE7-45E5-9852-A4F542A845CD}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- 
+    packages which are independent of Rhino release 
+  -->
+  <!--
+    How to specify versions or version ranges? 
+    see https://learn.microsoft.com/en-us/nuget/concepts/package-versioning?tabs=semver20sort#version-ranges
+  -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageVersion Include="MSTest.TestAdapter" Version="3.2.1" />
+    <PackageVersion Include="MSTest.TestFramework" Version="3.2.1" />
+  </ItemGroup>
+</Project>

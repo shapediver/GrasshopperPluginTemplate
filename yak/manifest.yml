@@ -1,0 +1,11 @@
+---
+name: $name$
+version: $version$
+authors:
+- $authors$
+description: >
+  $description$
+url: $url$
+icon_url: "$icon_url$"
+keywords:
+$keywords$

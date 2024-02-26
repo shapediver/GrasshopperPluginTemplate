@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+    see https://devblogs.microsoft.com/nuget/introducing-central-package-management/
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <!-- 
+    packages which are independent of Rhino release 
+  -->
+  <Import Project="$(MSBuildThisFileDirectory)\Packages.props" />
+  <!--
+    packages specific to Rhino 7
+  -->
+  <Import Project="$(MSBuildThisFileDirectory)\PackagesRhino7.props" Condition="$(Configuration.Contains('R7'))"/>
+  <!--
+    packages specific to Rhino 8
+  -->
+  <Import Project="$(MSBuildThisFileDirectory)\PackagesRhino8.props" Condition="$(Configuration.Contains('R8'))"/>
+</Project>

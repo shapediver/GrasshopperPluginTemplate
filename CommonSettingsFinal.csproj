@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- 
+    This file should be the final import used.
+    It defines default values for AssemblyTitle and Description in case none have been set by the main project file.
+  -->
+  <PropertyGroup>
+    <AssemblyTitle Condition=" '$(AssemblyTitle)' == '' ">$(AssemblyName)</AssemblyTitle>
+    <Description Condition=" '$(Description)' == '' ">$(AssemblyName)</Description>
+  </PropertyGroup>
+</Project>
