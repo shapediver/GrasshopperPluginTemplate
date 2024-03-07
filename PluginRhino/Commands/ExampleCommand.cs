@@ -25,6 +25,34 @@ namespace PluginTemplate.PluginRhino
 
         protected override Result RunCommand(RhinoDoc doc, RunMode mode)
         {
+            /// The following code shows a possibility to differentiate between versions of RhinoCommon and .NET at compile time.
+
+            /// The RHINOCOMMON_* constants are defined in "CommonReferencesRhino.csproj"
+#if RHINOCOMMON_EQUAL_7
+            RhinoApp.WriteLine("RHINOCOMMON_EQUAL_7 is defined.");
+#endif
+
+#if RHINOCOMMON_EQUAL_8
+            RhinoApp.WriteLine("RHINOCOMMON_EQUAL_8 is defined.");
+#endif
+
+#if RHINOCOMMON_GREATER_EQUAL_7
+            RhinoApp.WriteLine("RHINOCOMMON_GREATER_EQUAL_7 is defined.");
+#endif
+
+#if RHINOCOMMON_GREATER_EQUAL_8
+            RhinoApp.WriteLine("RHINOCOMMON_GREATER_EQUAL_8 is defined.");
+#endif
+
+            /// see https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives
+#if NETFRAMEWORK
+            RhinoApp.WriteLine("NETFRAMEWORK is defined.");
+#endif
+
+#if NET7_0_OR_GREATER
+            RhinoApp.WriteLine("NET7_0_OR_GREATER is defined.");
+#endif
+
             return Result.Success;
         }
     }
