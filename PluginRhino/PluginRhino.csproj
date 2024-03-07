@@ -40,7 +40,7 @@
       see https://learn.microsoft.com/en-us/dotnet/standard/assembly/set-attributes-project-file#set-arbitrary-attributes
     -->
     <AssemblyAttribute Include="System.Runtime.InteropServices.GuidAttribute">
-      <_Parameter1>00E3D84D-1D40-4950-B6F7-0CEBAE7DF1CF</_Parameter1>
+      <_Parameter1>00000000-0000-0000-0000-000000000000</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
   

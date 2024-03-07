@@ -24,18 +24,23 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE2713C1-7811-4EE6-A885-7E3A904B43A7}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		BuildRhino7.bat = BuildRhino7.bat
+		BuildRhino8.bat = BuildRhino8.bat
+		BuildYakOnlyRhino7.bat = BuildYakOnlyRhino7.bat
+		BuildYakOnlyRhino8.bat = BuildYakOnlyRhino8.bat
 		CommonReferencesGrasshopper.csproj = CommonReferencesGrasshopper.csproj
 		CommonReferencesRhino.csproj = CommonReferencesRhino.csproj
 		CommonReferencesTests.csproj = CommonReferencesTests.csproj
 		CommonSettings.csproj = CommonSettings.csproj
 		CommonSettingsFinal.csproj = CommonSettingsFinal.csproj
+		CommonVariables.bat = CommonVariables.bat
 		CommonVariables.csproj = CommonVariables.csproj
 		Directory.Packages.props = Directory.Packages.props
 		Packages.props = Packages.props
 		PackagesRhino7.props = PackagesRhino7.props
 		PackagesRhino8.props = PackagesRhino8.props
 		README.md = README.md
-		TODO.txt = TODO.txt
+		TODO.md = TODO.md
 	EndProjectSection
 EndProject
 Global
