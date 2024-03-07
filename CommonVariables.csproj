@@ -20,6 +20,13 @@
     <CommonVersionSuffix>-alpha</CommonVersionSuffix>
   </PropertyGroup>
   <!--
+    GUIDs for the Grasshopper and the Rhino Plug-In. Make sure to set these to unique values.
+  -->
+  <PropertyGroup>
+    <GrasshopperPluginGuid>00000000-0000-0000-0000-000000000000</GrasshopperPluginGuid>
+    <RhinoPluginGuid>00000000-0000-0000-0000-000000000000</RhinoPluginGuid>
+  </PropertyGroup>
+  <!--
     Common name and namespace for all projects. In case you change the namespace, please also do
     a search and replace operation on all code files.
   -->

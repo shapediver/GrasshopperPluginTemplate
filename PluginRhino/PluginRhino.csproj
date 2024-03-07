@@ -8,6 +8,7 @@
   <PropertyGroup>
     <RootNamespace>$(CommonNamespace).PluginRhino</RootNamespace>
     <AssemblyName>$(CommonName).PluginRhino</AssemblyName>
+    <AssemblyTitle>$(CommonName)</AssemblyTitle>
     <Description>$(Product)</Description>
     <TargetExt>.rhp</TargetExt>
     <!--
@@ -40,7 +41,7 @@
       see https://learn.microsoft.com/en-us/dotnet/standard/assembly/set-attributes-project-file#set-arbitrary-attributes
     -->
     <AssemblyAttribute Include="System.Runtime.InteropServices.GuidAttribute">
-      <_Parameter1>00000000-0000-0000-0000-000000000000</_Parameter1>
+      <_Parameter1>$(RhinoPluginGuid)</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
   
