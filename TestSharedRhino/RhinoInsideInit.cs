@@ -29,7 +29,7 @@ namespace PluginTemplate.Tests.SharedRhino
             rhinoDir = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\McNeel\Rhinoceros\7.0\Install", "Path", null) as string ?? string.Empty;
 #endif
             Assert.IsTrue(System.IO.Directory.Exists(rhinoDir), "Rhino system dir not found: {0}", rhinoDir);
-            context.WriteLine(" The current Rhino 7 installation is " + rhinoDir);
+            context.WriteLine(" The current Rhino installation is " + rhinoDir);
 
             if (initialized)
             {

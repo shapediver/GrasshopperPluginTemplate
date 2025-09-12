@@ -4,11 +4,14 @@ REM VsDevTools might need to be adapted according your installation of Visual St
 set "VsDevTools=C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat"
 
 REM where to find yak
-if exists "C:\Program Files\Rhino 8\System\yak.exe""(
+if exist "C:\Program Files\Rhino 8\System\yak.exe" (
     set "YakExecutable=C:\Program Files\Rhino 8\System\yak.exe"
+) else if exist "C:\Program Files\Rhino 7\System\yak.exe" (
+    set "YakExecutable=C:\Program Files\Rhino 7\System\yak.exe"
 ) else (
-    set "YakExecutable=C:\Program Files\Rhino 7\System\yak.exe" 
-) 
+    echo [WARN] yak.exe not found in default Rhino 7/8 locations.
+    set "YakExecutable="
+)
 
 REM name of the solution to build
 set "Name=PluginTemplate"

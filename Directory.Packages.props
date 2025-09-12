@@ -5,6 +5,9 @@
   -->
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <!-- Determines if the current project is a test project based on its file name -->
+    <IsTestProject>false</IsTestProject>
+    <IsTestProject Condition="'$(MSBuildProjectName)' != '' and $([System.String]::Copy('$(MSBuildProjectName)').StartsWith('Test'))">true</IsTestProject>
   </PropertyGroup>
   <!-- 
     packages which are independent of Rhino release 

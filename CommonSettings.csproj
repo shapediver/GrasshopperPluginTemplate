@@ -27,9 +27,12 @@
     <TargetFrameworks>net48</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration.EndsWith('R8'))">
-    <TargetFrameworks>net48;net7.0-windows;net7.0-macos</TargetFrameworks>
+    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
   </PropertyGroup>
-  
+  <PropertyGroup Condition="$(Configuration.EndsWith('R8')) and '$(IsTestProject)' == 'false'">
+    <TargetFrameworks>$(TargetFrameworks);net7.0-windows</TargetFrameworks>
+  </PropertyGroup>
+
   <!--
         Settings related to TargetFramework.
   -->
