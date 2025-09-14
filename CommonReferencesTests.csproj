@@ -8,4 +8,10 @@
     <PackageReference Include="MSTest.TestAdapter" />
     <PackageReference Include="MSTest.TestFramework" />
   </ItemGroup>
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunSettingsFilePath>$(MSBuildThisFileDirectory)\test.$(Configuration).runsettings</RunSettingsFilePath>
+  </PropertyGroup>
 </Project>

@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		PackagesRhino7.props = PackagesRhino7.props
 		PackagesRhino8.props = PackagesRhino8.props
 		README.md = README.md
+		test.DebugR7.runsettings = test.DebugR7.runsettings
+		test.DebugR8.runsettings = test.DebugR8.runsettings
 		TODO.md = TODO.md
 	EndProjectSection
 EndProject

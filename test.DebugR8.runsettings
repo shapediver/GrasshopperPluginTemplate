@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <!-- Prevent the test platform from creating AppDomains for discovery/execution -->
+    <DisableAppDomain>true</DisableAppDomain>
+    <TargetPlatform>x64</TargetPlatform>
+    <!-- Optional: on .NET Framework, use a separate process per test assembly
+         (isolation without AppDomains). Not needed on .NET Core/.NET 5+. -->
+    <!-- <InIsolation>true</InIsolation> -->
+  </RunConfiguration>
+</RunSettings>
